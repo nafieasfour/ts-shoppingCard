@@ -8,7 +8,8 @@ var productListElement = document.getElementById('product-list');
 if (productListElement) {
     products.forEach(function (product) {
         var productElement = document.createElement('div');
-        productElement.innerHTML = "\n        <h2>".concat(product.name, "</h2>\n        <p>Price: $").concat(product.price, "</p>\n        <button onclick=\"addToCart(").concat(product.id, ")\">Add to Cart</button>\n      ");
+        productElement.className = 'product';
+        productElement.innerHTML = "\n      <h2>".concat(product.name, "</h2>\n      <p>Price: $").concat(product.price, "</p>\n      <button onclick=\"addToCart(").concat(product.id, ")\">Add to Cart</button>\n    ");
         productListElement.appendChild(productElement);
     });
 }
@@ -26,8 +27,11 @@ function updateCart() {
         cartElement.innerHTML = '<h2>Cart</h2>';
         cart.forEach(function (product) {
             var cartItemElement = document.createElement('div');
-            cartItemElement.innerHTML = "\n          <h3>".concat(product.name, "</h3>\n          <p>Price: $").concat(product.price, "</p>\n        ");
+            cartItemElement.className = 'cart-item';
+            cartItemElement.innerHTML = "\n        <h3>".concat(product.name, "</h3>\n        <p>Price: $").concat(product.price, "</p>\n      ");
             cartElement.appendChild(cartItemElement);
         });
     }
 }
+// Ensure the addToCart function is available globally
+window.addToCart = addToCart;
