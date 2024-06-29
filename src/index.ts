@@ -50,6 +50,4 @@ function updateCart() {
     });
   }
 }
-
-// Ensure the addToCart function is available globally
 (window as any).addToCart = addToCart;
